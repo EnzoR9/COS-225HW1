@@ -1,5 +1,11 @@
 public class ParkingTester
 {
+    public static void main(String[] args)
+    {
+        ParkingLot parkingLot = new ParkingLot();
+        parkingLot.toString();
+
+    }
     // contains only a main class that performs the following operations:
         // instantiate a ParkingLot
         // "Print" the ParkingLot by calling its ToString() method

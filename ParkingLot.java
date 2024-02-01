@@ -1,6 +1,27 @@
 public class ParkingLot
 {
-    // contains an array of ten ParkingSpots, two of which are handicap accessible
+    public ParkingSpot[] parkingSpots;
+    
+    public ParkingLot()
+    {
+        this.parkingSpots = new ParkingSpot[10];
+        for (int i = 0; i < 10; i++)    
+        {
+            if (i <= 1)
+            {
+                this.parkingSpots[i] = new ParkingSpot(true);
+            }
+            else 
+            {
+                this.parkingSpots[i] = new ParkingSpot(false);
+            }
+        }
+    }
+
+    public String toString()
+    {
+        return "";
+    }
 
     // implements a constructor that creates the array mentioned above
     // implements a method that takes a Car and parks it in the appropriate available parking spot
