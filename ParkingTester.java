@@ -3,21 +3,21 @@ public class ParkingTester
     public static void main(String[] args)
     {
         ParkingLot parkingLot = new ParkingLot();
-        parkingLot.toString();
+        System.out.println(parkingLot);
+
+        Car infinitiA = new Car( "Infiniti","A", true);
+        int infinitiIndex = parkingLot.parkCar(infinitiA);
+        System.out.println(parkingLot);
+        
+        Car cadiliacB = new Car("Cadillac", "B", false);
+        int cadiliacIndex = parkingLot.parkCar(cadiliacB);
+        System.out.println(parkingLot);
+        
+        Car yeetedCar = parkingLot.removeCar(infinitiIndex);
+        System.out.println(parkingLot);
+        
+        
 
     }
-    // contains only a main class that performs the following operations:
-        // instantiate a ParkingLot
-        // "Print" the ParkingLot by calling its ToString() method
-
-        // instantiate a Car that represents a "infiniti A", with handicap accessible tags
-        // park this Car in the ParkingLot
-        // "Print" the ParkingLot by calling its ToString() method
-
-        // instantiate a Car that represents a "Cadiliac B", non-handicap
-        // park this Car in the ParkingLot
-        // "Print" the ParkingLot by calling its ToString() method
-
-        // remove the first Car (the "infiniti A") from the ParkingLot 
-        // "Print" the ParkingLot by calling its ToString() method
+   
 }

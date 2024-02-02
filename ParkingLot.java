@@ -2,9 +2,11 @@ public class ParkingLot
 {
     public ParkingSpot[] parkingSpots;
     
+    // implements a constructor that creates the array mentioned above
     public ParkingLot()
     {
-        this.parkingSpots = new ParkingSpot[10];
+        parkingSpots = new ParkingSpot[10];
+        
         for (int i = 0; i < 10; i++)    
         {
             if (i <= 1)
@@ -17,18 +19,56 @@ public class ParkingLot
             }
         }
     }
+    // implements a method that takes a Car and parks it in the appropriate available parking spot
+        // this method should return an int representing the chosen index of the chosen parking spot in the array
+    public int parkCar(Car car)
+    {
+        for (int i = 0; i < parkingSpots.length; i++)
+        {
+            if (parkingSpots[i].parkedCar == null && (!parkingSpots[i].isHandicap || car.isHandicap))
+            {
+                parkingSpots[i].parkedCar = car;
+                return i;
+            }
+        }
+
+        return -1;
+    }
+
+    public Car removeCar(int index)
+    {
+        if(index < 0 || index >= parkingSpots.length)
+        {
+            return null;
+        }
+        Car car = parkingSpots[index].parkedCar;
+        parkingSpots[index].parkedCar = null;
+
+        return car;
+    }
 
     public String toString()
     {
-        return "";
+        int handicapParking = 0;
+        int standardParking = 0;
+
+        for (int i = 0; i < parkingSpots.length; i++)
+        {
+            if(parkingSpots[i].isHandicap && parkingSpots[i].parkedCar == null)
+            {
+                handicapParking++;
+            }
+            else if (parkingSpots[i].parkedCar == null)
+            {
+                standardParking++;
+            }
+        }
+        return (handicapParking + " " + standardParking);
     }
 
-    // implements a constructor that creates the array mentioned above
-    // implements a method that takes a Car and parks it in the appropriate available parking spot
-        // this method should return an int representing the chosen index of the chosen parking spot in the array
-    // implements a method that takes an int and removes and returns the specified Car from the given ParkingSpot
-    // implement toString() to return a string containing the number of handicap accessible
-    // and standard parkinf spots available separated by a single space (X,Y)
+    
+    
+   
      
 
 }
